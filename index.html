@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Package Price List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Data Package Price List</h1>
+            <p>Current prices with applied markup</p>
+        </header>
+        
+        <main>
+            <div id="loading" class="loading">Loading data packages...</div>
+            <div id="error" class="error" style="display: none;">
+                Failed to load data packages. Please try again later.
+            </div>
+            <div id="packages-container" class="packages-container"></div>
+        </main>
+        
+        <footer>
+            <p>Prices updated automatically from provider</p>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
