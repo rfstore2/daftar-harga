@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Harga Paket Data | RPayment</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f7f9;
+      margin: 40px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+    .header-kategori-container {
+      width: 100vw; /* Lebar penuh layar */
+      position: fixed; /* Tetap di atas saat scroll */
+      top: 0;
+      left: 0;
+      background-color: #e0076e;
+      box-shadow: 0 8px 24px rgba(0, 82, 135, 0.2);
+      margin-bottom: 0;
+      z-index: 9999;
+      padding: 1.4rem 0 1.2rem 0;
+      user-select: none;
+      display: flex;
+      justify-content: center;
+    }
+    .header-kategori {
+      max-width: 420px;
+      width: 100%;
+      color: white;
+      font-size: 2rem;
+      font-weight: 700;
+      padding: 0 24px;
+      text-align: center;
+    }
+    .menu-kategori {
+      width: 420px;
+      background: #ffffff;
+      border-radius: 16px 16px 16px 16px;
+      box-shadow: 0 8px 24px rgba(0, 82, 135, 0.2);
+      overflow: hidden;
+      padding: 0;
+      margin-top: 70px; /* Beri jarak agar tidak tertutup header fixed */
+    }
+    .menu-item {
+      display: flex;
+      align-items: center;
+      padding: 16px 24px;
+      cursor: pointer;
+      text-decoration: none;
+      color: #e0076e;
+      font-size: 18px;
+      font-weight: 600;
+      border-bottom: 1px solid rgb(224, 7, 110, 0.2);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .menu-item:last-child {
+      border-bottom: none;
+    }
+    .menu-item:hover {
+      background-color: #fecdf180;
+      color: #b53e79;
+    }
+    .menu-logo {
+      width: 40px;
+      height: 40px;
+      margin-right: 20px;
+      border-radius: 12px;
+      background: #e0076e1a;
+      border: 2px solid #e0076e;
+      padding: 4px;
+      object-fit: contain;
+      transition: border-color 0.3s ease, background-color 0.3s ease;
+    }
+    .menu-item:hover .menu-logo {
+      border-color: #e0076e;
+      background-color: #e0076e1a;
+    }
+    .menu-text {
+      flex: 1;
+      margin-left: 0;
+      letter-spacing: 0.02em;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-kategori-container">
+    <div class="header-kategori">Kategori Kuota Tri</div>
+  </div>
+  <div class="menu-kategori">
+    <a href="./Aon_Tri_Baru.html" class="menu-item">
+      <img src="/root/assets/logo_tri.png" class="menu-logo" alt="Tri" />
+      <span class="menu-text">AON Tri Baru</span>
+    </a>
+    <a href="./Tri_All_Jaringan.html" class="menu-item">
+      <img src="/root/assets/logo_tri.png" class="menu-logo" alt="Tri" />
+      <span class="menu-text">Tri All Jaringan</span>
+    </a>
+    <a href="./Tri_Paket_Happy.html" class="menu-item">
+      <img src="/root/assets/logo_tri.png" class="menu-logo" alt="Tri" />
+      <span class="menu-text">Tri Paket Happy</span>
+    </a>
+    <a href="./Tri_Data_4G_LTE.html" class="menu-item">
+      <img src="/root/assets/logo_tri.png" class="menu-logo" alt="Tri" />
+      <span class="menu-text">Tri Data 4G LTE</span>
+    </a>
+    <a href="./Tri_Data_Combo.html" class="menu-item">
+      <img src="/root/assets/logo_tri.png" class="menu-logo" alt="Tri" />
+      <span class="menu-text">Tri Data Combo</span>
+    </a>
+    <a href="./Tri_Data_On_Streaming.html" class="menu-item">
+      <img src="/root/assets/logo_tri.png" class="menu-logo" alt="Byu" />
+      <span class="menu-text">Tri Data On Streaming</span>
+    </a>
+    <a href="./Tri_Get_More.html" class="menu-item">
+      <img src="/root/assets/logo_tri.png" class="menu-logo" alt="Tri" />
+      <span class="menu-text">Tri Gate More</span>
+    </a>
+    <a href="./Data_Mini_Harian.html" class="menu-item">
+      <img src="/root/assets/logo_tri.png" class="menu-logo" alt="Tri" />
+      <span class="menu-text">Tri Data Mini Harian</span>
+    </a>
+    <a href="./Roaming_Haji_&_Umroh.html" class="menu-item">
+      <img src="/root/assets/logo_tri.png" class="menu-logo" alt="Tri" />
+      <span class="menu-text">Roaming Haji & Umroh</span>
+    </a>
+  </div>
+</body>
+</html>
