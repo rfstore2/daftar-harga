@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Kategori Kuota Smartfren</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f7f9;
+      margin: 40px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+    .header-kategori-container {
+      width: 100vw; /* Lebar penuh layar */
+      position: fixed; /* Tetap di atas saat scroll */
+      top: 0;
+      left: 0;
+      background-color: #be2820;
+      box-shadow: 0 8px 24px rgba(0, 82, 179, 0.3);
+      margin-bottom: 0;
+      z-index: 9999;
+      padding: 1.4rem 0 1.2rem 0;
+      user-select: none;
+      display: flex;
+      justify-content: center;
+    }
+    .header-kategori {
+      max-width: 420px;
+      width: 100%;
+      color: white;
+      font-size: 2rem;
+      font-weight: 700;
+      padding: 0 24px;
+      text-align: center;
+    }
+    .menu-kategori {
+      width: 420px;
+      background: #ffffff;
+      border-radius: 16px 16px 16px 16px;
+      box-shadow: 0 8px 24px rgba(0, 82, 135, 0.15);
+      overflow: hidden;
+      padding: 0;
+      margin-top: 70px; /* Beri jarak agar tidak tertutup header fixed */
+    }
+    .menu-item {
+      display: flex;
+      align-items: center;
+      padding: 16px 24px;
+      cursor: pointer;
+      text-decoration: none;
+      color: #eb9f28;
+      font-size: 18px;
+      font-weight: 600;
+      border-bottom: 1px solid #be28201a;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .menu-item:last-child {
+      border-bottom: none;
+    }
+    .menu-item:hover {
+      background-color: #eb9f281a;
+      color: #be2820;
+    }
+    .menu-logo {
+      width: 40px;
+      height: 40px;
+      margin-right: 20px;
+      border-radius: 12px;
+      background: #dc241a1a;
+      border: 2px solid #dc241acc;
+      padding: 4px;
+      object-fit: contain;
+      transition: border-color 0.3s ease, background-color 0.3s ease;
+    }
+    .menu-item:hover .menu-logo {
+      border-color: #be2820;
+      background-color: #be28201a;
+    }
+    .menu-text {
+      flex: 1;
+      margin-left: 0;
+      letter-spacing: 0.02em;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-kategori-container">
+    <div class="header-kategori">Kategori Kuota Smartfren</div>
+  </div>
+  <div class="menu-kategori">
+    <a href="./Smart_Data_Combo.html" class="menu-item">
+      <img src="/root/assets/logo_smartfren.png" class="menu-logo" alt="Smartfren" />
+      <span class="menu-text">Smart Data Combo</span>
+    </a>
+    <a href="./Smart_Data_Unlimited.html" class="menu-item">
+      <img src="/root/assets/logo_smartfren.png" class="menu-logo" alt="Smartfren" />
+      <span class="menu-text">Smart Data Unlimited</span>
+    </a>
+    <a href="./Smart_Kuota_Nonstop.html" class="menu-item">
+      <img src="/root/assets/logo_smartfren.png" class="menu-logo" alt="Smartfren" />
+      <span class="menu-text">Smart Kuota Nonstop</span>
+    </a>
+    <a href="./Smart_Volume_Based.html" class="menu-item">
+      <img src="/root/assets/logo_smartfren.png" class="menu-logo" alt="Smartfren" />
+      <span class="menu-text">Smart Volume Based</span>
+    </a>
+    <a href="./Smart_Super_Kuota.html" class="menu-item">
+      <img src="/root/assets/logo_smartfren.png" class="menu-logo" alt="Smartfren" />
+      <span class="menu-text">Smart Super Kuota</span>
+    </a>
+    <a href="./Mini_Data_Smartfren.html" class="menu-item">
+      <img src="/root/assets/logo_smartfren.png" class="menu-logo" alt="Byu" />
+      <span class="menu-text">Mini Data Smartfeen</span>
+    </a>
+    <a href="./Streaming_&_Sosmed.html" class="menu-item">
+      <img src="/root/assets/logo_smartfren.png" class="menu-logo" alt="Smartfren" />
+      <span class="menu-text">Streaming & Sosmed</span>
+    </a>
+  </div>
+</body>
+</html>
