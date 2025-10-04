@@ -96,8 +96,8 @@
         let allProducts = [];
         try {
           const [s, p] = await Promise.all([
-            fetch('/project%20list%20harga%20paket/settings.json').then(r => r.json()),
-            fetch('/project%20list%20harga%20paket/list.json').then(r => r.json())
+            fetch('/root/settings.json').then(r => r.json()),
+            fetch('/root/list.json').then(r => r.json())
           ]);
   
           allProducts = Array.isArray(p) ?
