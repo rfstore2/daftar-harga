@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Harga Paket Data | RPayment</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f7f9;
+      margin: 40px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+    .header-kategori-container {
+      width: 100vw; /* Lebar penuh layar */
+      position: fixed; /* Tetap di atas saat scroll */
+      top: 0;
+      left: 0;
+      background-color: #fd0825;
+      box-shadow: 0 8px 24px rgba(0, 82, 135, 0.2);
+      margin-bottom: 0;
+      z-index: 9999;
+      padding: 1.4rem 0 1.2rem 0;
+      user-select: none;
+      display: flex;
+      justify-content: center;
+    }
+    .header-kategori {
+      max-width: 420px;
+      width: 100%;
+      color: white;
+      font-size: 2rem;
+      font-weight: 700;
+      padding: 0 24px;
+      text-align: center;
+    }
+    .menu-kategori {
+      width: 420px;
+      background: #ffffff;
+      border-radius: 16px 16px 16px 16px;
+      box-shadow: 0 8px 24px rgba(0, 82, 135, 0.2);
+      overflow: hidden;
+      padding: 0;
+      margin-top: 70px; /* Beri jarak agar tidak tertutup header fixed */
+    }
+    .menu-item {
+      display: flex;
+      align-items: center;
+      padding: 16px 24px;
+      cursor: pointer;
+      text-decoration: none;
+      color: #fd0825;
+      font-size: 18px;
+      font-weight: 600;
+      border-bottom: 1px solid #cf0c1a1a;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .menu-item:last-child {
+      border-bottom: none;
+    }
+    .menu-item:hover {
+      background-color: #cf0c1a1a;
+      color: #cf0c1a;
+    }
+    .menu-logo {
+      width: 40px;
+      height: 40px;
+      margin-right: 20px;
+      border-radius: 12px;
+      background: #fd08251a;
+      border: 2px solid #fd0825;
+      padding: 4px;
+      object-fit: contain;
+      transition: border-color 0.3s ease, background-color 0.3s ease;
+    }
+    .menu-item:hover .menu-logo {
+      border-color: #cf0c1a;
+      background-color: #fd08251a;
+    }
+    .menu-text {
+      flex: 1;
+      margin-left: 0;
+      letter-spacing: 0.02em;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-kategori-container">
+    <div class="header-kategori">Data Digital / Lainnya</div>
+  </div>
+  <div class="menu-kategori">
+    <a href="./paket_ketengan.html" class="menu-item">
+      <img src="/root/assets/logo_telkomsel.png" class="menu-logo" alt="Telkomsel" />
+      <span class="menu-text">Paket Ketengan</span>
+    </a>
+    <a href="./paket_data_sosmed.html" class="menu-item">
+      <img src="/root/assets/logo_telkomsel.png" class="menu-logo" alt="Telkomsel" />
+      <span class="menu-text">Paket Data Sosmed</span>
+    </a>
+    <a href="./paket_omg_vaganza.html" class="menu-item">
+      <img src="/root/assets/logo_telkomsel.png" class="menu-logo" alt="Telkomsel" />
+      <span class="menu-text">Paket OMG Vaganza</span>
+    </a>
+    <a href="./paket_maxgame.html" class="menu-item">
+      <img src="/root/assets/logo_telkomsel.png" class="menu-logo" alt="Telkomsel" />
+      <span class="menu-text">Paket MaxGame</span>
+    </a>
+    <a href="./paket_maxstream.html" class="menu-item">
+      <img src="/root/assets/logo_telkomsel.png" class="menu-logo" alt="Telkomsel" />
+      <span class="menu-text">Paket MaxStream</span>
+    </a>
+    <a href="./maxstream_gala.html" class="menu-item">
+      <img src="/root/assets/logo_telkomsel.png" class="menu-logo" alt="Byu" />
+      <span class="menu-text">MaxStream Gala</span>
+    </a>
+    <a href="./musicmax_data.html" class="menu-item">
+      <img src="/root/assets/logo_telkomsel.png" class="menu-logo" alt="Telkomsel" />
+      <span class="menu-text">Musicmax Data</span>
+    </a>
+    <a href="./gigamax_data.html" class="menu-item">
+      <img src="/root/assets/logo_telkomsel.png" class="menu-logo" alt="Telkomsel" />
+      <span class="menu-text">Gigamax Data</span>
+    </a>
+  </div>
+</body>
+</html>
