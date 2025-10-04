@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Harga Paket Data | RPayment</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f7f9;
+      margin: 40px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+    .header-kategori-container {
+      width: 100vw; /* Lebar penuh layar */
+      position: fixed; /* Tetap di atas saat scroll */
+      top: 0;
+      left: 0;
+      background-color: #eb3136;
+      box-shadow: 0 8px 24px #fddf221a;
+      margin-bottom: 0;
+      z-index: 9999;
+      padding: 1.4rem 0 1.2rem 0;
+      user-select: none;
+      display: flex;
+      justify-content: center;
+    }
+    .header-kategori {
+      max-width: 420px;
+      width: 100%;
+      color: white;
+      font-size: 2rem;
+      font-weight: 700;
+      padding: 0 24px;
+      text-align: center;
+    }
+    .menu-kategori {
+      width: 420px;
+      background: #ffffff;
+      border-radius: 16px 16px 16px 16px;
+      box-shadow: 0 8px 24px #fddf221a;
+      overflow: hidden;
+      padding: 0;
+      margin-top: 70px; /* Beri jarak agar tidak tertutup header fixed */
+    }
+    .menu-item {
+      display: flex;
+      align-items: center;
+      padding: 16px 24px;
+      cursor: pointer;
+      text-decoration: none;
+      color: #eb3136cc;
+      font-size: 18px;
+      font-weight: 600;
+      border-bottom: 1px solid #eb31361a;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .menu-item:last-child {
+      border-bottom: none;
+    }
+    .menu-item:hover {
+      background-color: #fddf221a;
+      color: #eb3136;
+    }
+    .menu-logo {
+      width: 40px;
+      height: 40px;
+      margin-right: 20px;
+      border-radius: 12px;
+      background: #fddf221a;
+      border: 2px solid #fddf22;
+      padding: 4px;
+      object-fit: contain;
+      transition: border-color 0.3s ease, background-color 0.3s ease;
+    }
+    .menu-item:hover .menu-logo {
+      border-color: #eb3136;
+      background-color: #eb31361a;
+    }
+    .menu-text {
+      flex: 1;
+      margin-left: 0;
+      letter-spacing: 0.02em;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-kategori-container">
+    <div class="header-kategori">Kategori Kuota Indosat</div>
+  </div>
+  <div class="menu-kategori">
+    <a href="./Indosat_Yellow.html" class="menu-item">
+      <img src="/root/assets/logo_indosat.png" class="menu-logo" alt="Indosat" />
+      <span class="menu-text">Indosat Yellow</span>
+    </a>
+    <a href="./Unlimited_Harian.html" class="menu-item">
+      <img src="/root/assets/logo_indosat.png" class="menu-logo" alt="Indosat" />
+      <span class="menu-text">Unlimited Harian</span>
+    </a>
+    <a href="./Freedoom_U_Unlimited.html" class="menu-item">
+      <img src="/root/assets/logo_indosat.png" class="menu-logo" alt="Indosat" />
+      <span class="menu-text">Freedoom U Unlimited</span>
+    </a>
+    <a href="./Freedoom_Internet.html" class="menu-item">
+      <img src="/root/assets/logo_indosat.png" class="menu-logo" alt="Indosat" />
+      <span class="menu-text">Freedoom Internet</span>
+    </a>
+    <a href="./Data_Freedoom_Lainnya.html" class="menu-item">
+      <img src="/root/assets/logo_indosat.png" class="menu-logo" alt="Indosat" />
+      <span class="menu-text">Data Freedoom Lainnya</span>
+    </a>
+    <a href="./Freedoom_Mini_Data.html" class="menu-item">
+      <img src="/root/assets/logo_indosat.png" class="menu-logo" alt="Byu" />
+      <span class="menu-text">Freedoom Mini Data</span>
+    </a>
+    <a href="./Pure_Mini_Data.html" class="menu-item">
+      <img src="/root/assets/logo_indosat.png" class="menu-logo" alt="Indosat" />
+      <span class="menu-text">Pure Mini Data</span>
+    </a>
+    <a href="./Mini_Data_Aplikasi.html" class="menu-item">
+      <img src="/root/assets/logo_indosat.png" class="menu-logo" alt="Indosat" />
+      <span class="menu-text">Mini Data Aplikasi</span>
+    </a>
+    <a href="./Roaming_Haji_&_Umroh.html" class="menu-item">
+      <img src="/root/assets/logo_indosat.png" class="menu-logo" alt="Indosat" />
+      <span class="menu-text">Roam Haji & Umroh</span>
+    </a>
+  </div>
+</body>
+</html>
