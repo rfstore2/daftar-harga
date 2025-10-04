@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harga Paket Data | RPayment</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <h1 id="store-name">Loading...</h1>
+    </header>
+
+    <main>
+        <section class="toolbar">
+            <div class="search-wrap">
+                <input
+                    type="search"
+                    id="search-input"
+                    placeholder="Cari produk (nama/kode/keterangan)..."
+                    autocomplete="off"
+                    aria-label="Cari produk"
+                />
+                <button id="clear-search" class="clear-btn" aria-label="Hapus pencarian" title="Hapus">×</button>
+            </div>
+            <div id="result-count" class="result-count"></div>
+        </section>
+
+        <div id="product-list" class="products-container">
+            <!-- Produk akan dirender di sini oleh JavaScript -->
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> <span id="footer-store-name">RPayment</span>.</p>
+    </footer>
+
+    <!-- Modal: Nomor Tujuan -->
+    <div id="modal-overlay" class="modal-overlay hidden" aria-hidden="true">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <h2 id="modal-title" class="modal-title">Masukkan Nomor Tujuan</h2>
+        <p class="modal-desc">Nomor tujuan akan dikirimkan dalam pesan WhatsApp pemesanan.</p>
+        <label for="target-number" class="modal-label">Nomor tujuan</label>
+        <input id="target-number" class="modal-input" type="tel" inputmode="numeric" placeholder="contoh: 081234567890" aria-describedby="target-help">
+        <div id="target-help" class="modal-help">Gunakan angka saja, tanpa spasi atau tanda baca.</div>
+        <div id="target-error" class="modal-error" aria-live="polite"></div>
+        <div class="modal-actions">
+            <button id="btn-cancel" class="btn btn-ghost">Batal</button>
+            <button id="btn-confirm" class="btn btn-primary">Lanjut</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+        const productList = document.getElementById('product-list');
+        const storeHeader = document.getElementById('store-name');
+        const footerStoreName = document.getElementById('footer-store-name');
+        const year = document.getElementById('year');
+        const searchInput = document.getElementById('search-input');
+        const clearBtn = document.getElementById('clear-search');
+        const resultCount = document.getElementById('result-count');
+
+        // Modal elements
+        const overlay = document.getElementById('modal-overlay');
+        const inputTarget = document.getElementById('target-number');
+        const errTarget = document.getElementById('target-error');
+        const btnCancel = document.getElementById('btn-cancel');
+        const btnConfirm = document.getElementById('btn-confirm');
+
+        year.textContent = new Date().getFullYear();
+
+        // Helpers
+        function formatRupiah(amount) {
+            const num = Number(amount) || 0;
+            return 'Rp ' + num.toLocaleString('id-ID');
+        }
+
+        function getCurrentTimestamp() {
+            const pad = n => n.toString().padStart(2, '0');
+            const now = new Date();
+            return `${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())} ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+        }
+
+        // Simple validation: digits only, length 8–15
+        function normalizeNumber(s) {
+            return String(s || '').replace(/\\D+/g, '');
+        }
+        function validateTargetNumber(s) {
+            const n = normalizeNumber(s);
+            return n.length >= 8 && n.length <= 15;
+        }
+
+        // Fetch settings & products
+        let settings = {};
+        let allProducts = [];
+        try {
+          const [s, p] = await Promise.all([
+            fetch('/project%20list%20harga%20paket/settings.json').then(r => r.json()),
+            fetch('/project%20list%20harga%20paket/list.json').then(r => r.json())
+          ]);
+  
+          allProducts = Array.isArray(p) ?
+          p.filter(it => {
+            const statusOk = String(it.status) === '1';
+            const kategori = it.kategori ? it.kategori.toUpperCase() : '';
+            const produk = it.produk ? it.produk.toLowerCase() : '';
+            return statusOk &&
+            (
+                (kategori === 'KUOTA AXIS' && produk.includes('axis data max'))
+            );
+          })
+          .sort((a, b) => (Number(a.harga) || 0) - (Number(b.harga) || 0)): [];
+        } catch(e) {
+        console.error(e);
+        }
+  
+
+        storeHeader.textContent = settings.store_name || 'RPayment';
+        footerStoreName.textContent = settings.store_name || 'RPayment';
+
+        // Rendering
+        function renderProducts(list) {
+            productList.innerHTML = '';
+            if (!list.length) {
+                const empty = document.createElement('div');
+                empty.className = 'empty-state';
+                empty.textContent = 'Tidak ada produk yang cocok.';
+                productList.appendChild(empty);
+                resultCount.textContent = '0 produk';
+                return;
+            }
+            list.forEach(item => {
+                const basePrice = Number(item.harga) || 0;
+        /// Atur Mark-up Harga disini
+                const finalPrice = basePrice + Number(2000 || 0);
+
+                const card = document.createElement('div');
+                card.className = 'product-card';
+
+                const details = document.createElement('div');
+                details.className = 'product-details';
+
+                const desc = document.createElement('div');
+                desc.className = 'product-desc';
+                desc.textContent = item.keterangan;
+
+                const name = document.createElement('div');
+                name.className = 'product-name';
+                name.textContent = item.produk;
+
+                const price = document.createElement('div');
+                price.className = 'product-price';
+                price.textContent = formatRupiah(finalPrice);
+
+                details.appendChild(desc);
+                details.appendChild(name);
+                details.appendChild(price);
+
+                const btnContainer = document.createElement('div');
+                btnContainer.className = 'product-action';
+
+                const buyBtn = document.createElement('button');
+                buyBtn.className = 'buy-btn';
+                buyBtn.textContent = 'Beli';
+                buyBtn.onclick = () => openModal(item, finalPrice);
+
+                btnContainer.appendChild(buyBtn);
+                card.appendChild(details);
+                card.appendChild(btnContainer);
+                productList.appendChild(card);
+            });
+            resultCount.textContent = `${list.length} produk`;
+        }
+
+        // Search (debounced)
+        let typingTimer = null;
+        function normalize(str) { return String(str || '').toLowerCase(); }
+        function filterProducts(query) {
+            const q = normalize(query);
+            let results = !q ? allProducts.slice() : allProducts.filter(it => {
+            const hay = `${it.kode || ''} ${it.produk || ''} ${it.keterangan || ''}`.toLowerCase();
+            return hay.includes(q);
+                });
+    // Urutkan ASC berdasarkan harga
+            return results.sort((a, b) => (Number(a.harga) || 0) - (Number(b.harga) || 0));
+        }
+        function onSearchInput() {
+            const value = searchInput.value.trim();
+            const filtered = filterProducts(value);
+            renderProducts(filtered);
+            clearBtn.style.visibility = value ? 'visible' : 'hidden';
+        }
+        searchInput.addEventListener('input', () => {
+            if (typingTimer) clearTimeout(typingTimer);
+            typingTimer = setTimeout(onSearchInput, 200);
+        });
+        clearBtn.addEventListener('click', () => {
+            searchInput.value = '';
+            clearBtn.style.visibility = 'hidden';
+            renderProducts(allProducts);
+        });
+
+        // Modal logic
+        let selectedItem = null;
+        let selectedFinalPrice = 0;
+
+        function openModal(item, finalPrice) {
+            selectedItem = item;
+            selectedFinalPrice = finalPrice;
+            inputTarget.value = '';
+            errTarget.textContent = '';
+            overlay.classList.remove('hidden');
+            overlay.setAttribute('aria-hidden', 'false');
+            setTimeout(() => inputTarget.focus(), 0);
+        }
+        function closeModal() {
+            overlay.classList.add('hidden');
+            overlay.setAttribute('aria-hidden', 'true');
+            selectedItem = null;
+            selectedFinalPrice = 0;
+        }
+
+        btnCancel.addEventListener('click', closeModal);
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) closeModal();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (!overlay.classList.contains('hidden') && e.key === 'Escape') closeModal();
+        });
+        
+        function buildMessage(item, finalPrice, nomorTujuanRaw) {
+            const nomorTujuan = normalizeNumber(nomorTujuanRaw);
+            const baseTemplate = String(settings.whatsapp_template || '{format_waktu}\
+            \n\nHalo, Saya mau beli\
+            \n> Kode produk: {kode}\
+            \n> Keterangan: {keterangan}\
+            \n> Produk: {produk}\
+            \n> Kategori: {kategori}\
+            \n> Harga: {harga}');
+            let msg = baseTemplate
+                .replace('{format_waktu}', getCurrentTimestamp())
+                .replace('{kode}', item.kode || '')
+                .replace('{keterangan}', item.keterangan || '')
+                .replace('{produk}', item.produk || '')
+                .replace('{kategori}', item.kategori || '')
+                .replace('{harga}', formatRupiah(finalPrice) + '\n');
+            if (baseTemplate.includes('{nomor_tujuan}')) {
+                msg = msg.replace('{nomor_tujuan}', nomorTujuan + '\n\n');
+            } 
+            else {
+                msg += '> Nomor tujuan: ' + nomorTujuan + '\n\n';
+            }
+    // Tambahkan baris paling bawah dengan format {kode}.{nomorTujuan}.pin.R#1
+            msg += `${item.kode || ''}.${nomorTujuan}.pin.R#1`;
+            return msg;
+        }
+
+        const OWNER_NUMBER = settings.owner_number || "6289661357368";
+
+        function submitModal() {
+            const val = inputTarget.value.trim();
+            if (!validateTargetNumber(val)) {
+            errTarget.textContent = 'Masukkan nomor valid (8–15 digit angka).';
+            inputTarget.focus();
+            return;
+            }
+        const message = buildMessage(selectedItem, selectedFinalPrice, val);
+        const waUrl = `https://wa.me/${OWNER_NUMBER}?text=${encodeURIComponent(message)}`;
+    closeModal();
+        window.open(waUrl, '_blank');
+        }
+
+        btnConfirm.addEventListener('click', submitModal);
+        inputTarget.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') submitModal();
+        });
+
+        // Initial render
+        renderProducts(allProducts);
+        clearBtn.style.visibility = 'hidden';
+    });
+    </script>
+</body>
+</html>

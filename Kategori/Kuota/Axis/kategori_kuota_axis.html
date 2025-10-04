@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Kategori Pulsa</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f7f9;
+      margin: 40px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+    .header-kategori-container {
+      width: 100vw; /* Lebar penuh layar */
+      position: fixed; /* Tetap di atas saat scroll */
+      top: 0;
+      left: 0;
+      background-color: #712e93;
+      box-shadow: 0 8px 24px #712e931a;
+      margin-bottom: 0;
+      z-index: 9999;
+      padding: 1.4rem 0 1.2rem 0;
+      user-select: none;
+      display: flex;
+      justify-content: center;
+    }
+    .header-kategori {
+      max-width: 420px;
+      width: 100%;
+      color: white;
+      font-size: 2rem;
+      font-weight: 700;
+      padding: 0 24px;
+      text-align: center;
+    }
+    .menu-kategori {
+      width: 420px;
+      background: #ffffff;
+      border-radius: 16px 16px 16px 16px;
+      box-shadow: 0 8px 24px #712e931a;
+      overflow: hidden;
+      padding: 0;
+      margin-top: 70px; /* Beri jarak agar tidak tertutup header fixed */
+    }
+    .menu-item {
+      display: flex;
+      align-items: center;
+      padding: 16px 24px;
+      cursor: pointer;
+      text-decoration: none;
+      color: #712e93cc;
+      font-size: 18px;
+      font-weight: 600;
+      border-bottom: 1px solid #712e931a;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .menu-item:last-child {
+      border-bottom: none;
+    }
+    .menu-item:hover {
+      background-color: #712e931a;
+      color: #712e93;
+    }
+    .menu-logo {
+      width: 40px;
+      height: 40px;
+      margin-right: 20px;
+      border-radius: 12px;
+      background: #712e931a;
+      border: 2px solid #712e93b3;
+      padding: 4px;
+      object-fit: contain;
+      transition: border-color 0.3s ease, background-color 0.3s ease;
+    }
+    .menu-item:hover .menu-logo {
+      border-color: #712e93;
+      background-color: #712e9333;
+    }
+    .menu-text {
+      flex: 1;
+      margin-left: 0;
+      letter-spacing: 0.02em;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-kategori-container">
+    <div class="header-kategori">Kategori Kuota Axis</div>
+  </div>
+  <div class="menu-kategori">
+    <a href="./Aigo_Kuota_Mini.html" class="menu-item">
+      <img src="/project%20list%20harga%20paket/assets/logo_axis.png" class="menu-logo" alt="Axis" />
+      <span class="menu-text">Aigo Kuota Mini</span>
+    </a>
+    <a href="./Bronet_Bulanan.html" class="menu-item">
+      <img src="/project%20list%20harga%20paket/assets/logo_axis.png" class="menu-logo" alt="Axis" />
+      <span class="menu-text">Bronet Bulanan</span>
+    </a>
+    <a href="./Owsem_&_Game.html" class="menu-item">
+      <img src="/project%20list%20harga%20paket/assets/logo_axis.png" class="menu-logo" alt="Axis" />
+      <span class="menu-text">Owsem & Game</span>
+    </a>
+    <a href="./X-tra_Sosial_Media.html" class="menu-item">
+      <img src="/project%20list%20harga%20paket/assets/logo_axis.png" class="menu-logo" alt="Axis" />
+      <span class="menu-text">X-Tra Sosial Media</span>
+    </a>
+    <a href="./Paket_Data_Max.html" class="menu-item">
+      <img src="/project%20list%20harga%20paket/assets/logo_axis.png" class="menu-logo" alt="Axis" />
+      <span class="menu-text">Paket Data Max</span>
+    </a>
+    <a href="./Paket_Data_Warnet.html" class="menu-item">
+      <img src="/project%20list%20harga%20paket/assets/logo_axis.png" class="menu-logo" alt="Byu" />
+      <span class="menu-text">Paket Data Warnet</span>
+    </a>
+    <a href="./Paket_Edu_Conference.html" class="menu-item">
+      <img src="/project%20list%20harga%20paket/assets/logo_axis.png" class="menu-logo" alt="Axis" />
+      <span class="menu-text">Paket Edu Conference</span>
+    </a>
+    <a href="./Roam_Haji_&_Umroh.html" class="menu-item">
+      <img src="/project%20list%20harga%20paket/assets/logo_axis.png" class="menu-logo" alt="Axis" />
+      <span class="menu-text">Roaming Haji & Umroh</span>
+    </a>
+  </div>
+</body>
+</html>
