@@ -1,0 +1,6 @@
+{
+  "owner_number": "6289661357368",
+  "store_name": "RPayment",
+  "price_markup": 2000,
+  "whatsapp_template": "{format_waktu}\nHalo, Saya mau beli\nKode produk: {kode}\nProduk: {produk}\nKeterangan: {keterangan}\nHarga: {harga}"
+}
